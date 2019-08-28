@@ -9,7 +9,6 @@ function getProducts() {
                 htmlProduct.innerText = `Nazwa produktu: ${product.name} | Cena produktu: ${product.price}`;
                 document.body.appendChild(htmlProduct);
             });
-            document.querySelector('#loading').style.display = "none";
         });
 }
 
