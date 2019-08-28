@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const mongodb = require('mongodb');
 const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
 const colors = require('colors');
@@ -14,7 +15,7 @@ app.get('/', (req, res) => {
     res.sendfile('./public/index.html');
 });
 
-admin(app, path, MongoClient, config.dbUrl, config.dbName);
+admin(app, path, MongoClient, config.dbUrl, config.dbName, mongodb);
 
 // app.get('/admin', (req, res) => {
 //     admin(path, req, res);

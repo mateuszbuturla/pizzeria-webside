@@ -1,5 +1,5 @@
 // function admin(path, req, res) {
-function admin(app, path, MongoClient, url, dbName) {
+function admin(app, path, MongoClient, url, dbName, mongodb) {
 
     function addProduct(name, price) {
 
@@ -42,7 +42,30 @@ function admin(app, path, MongoClient, url, dbName) {
         console.log(`Otrzymano dane by dodać to bazy danych: ${name} o cenie ${price}`);
         addProduct(name, price);
 
-    })
+    });
+
+    app.post('/admin/remove/:id', (req, res) => {
+
+        const { id } = req.params;
+
+        MongoClient.connect(url, function (err, client) {
+
+            const db = client.db(dbName);
+
+            const collection = db.collection('products');
+
+            collection.deleteOne({ _id: mongodb.ObjectID(id) }, function (err) {
+                if (err)
+                    console.log('Wystąpił błąd podczas usuwania produktu dz bazy danych'.red);
+                else
+                    console.log('Usuwanie produktu z bazy danych zakończyło się powodzeniem'.green);
+            });
+
+            client.close();
+
+        });
+
+    });
 
 }
 
