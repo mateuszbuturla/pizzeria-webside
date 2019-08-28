@@ -1,7 +1,7 @@
 // function admin(path, req, res) {
 function admin(app, path, MongoClient, url, dbName, mongodb) {
 
-    function addProduct(name, price) {
+    function addProduct(number, name, components, price, type) {
 
         MongoClient.connect(url, function (err, client) {
 
@@ -9,7 +9,7 @@ function admin(app, path, MongoClient, url, dbName, mongodb) {
 
             const collection = db.collection('products');
 
-            collection.insertOne({ name, price }, (err) => {
+            collection.insertOne({ number, name, components, price, type }, (err) => {
                 if (err)
                     console.log('Wystąpił błąd podczas dodawania do bazy danych'.red);
                 else
@@ -36,11 +36,10 @@ function admin(app, path, MongoClient, url, dbName, mongodb) {
 
     });
 
-    app.post('/admin/add/:name/:price', (req, res) => {
+    app.post('/admin/add/:number/:name/:components/:price/:type', (req, res) => {
 
-        const { name, price } = req.params;
-        console.log(`Otrzymano dane by dodać to bazy danych: ${name} o cenie ${price}`);
-        addProduct(name, price);
+        const { number, name, components, price, type } = req.params;
+        addProduct(number, name, components, price, type);
 
     });
 

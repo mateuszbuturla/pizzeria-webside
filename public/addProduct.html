@@ -15,9 +15,16 @@
     <a href="/admin">Panel Administratora</a>
 
     <form method="post">
+        Numer<input type="text" id="productNumber"><br>
         Nazwa<input type="text" id="productName"><br>
+        Skdniki<input type="text" id="productComponents"><br>
         Cena<input type="text" id="productPrice"><br>
-
+        <select id="productType">
+            <option value="pizza">Pizza</option>
+            <option value="salat">Sałatka</option>
+            <option value="pierogi">Pierogi</option>
+            <option value="drink">Napój</option>
+        </select>
         <p id="addProduct">Dodaj</p>
     </form>
 
