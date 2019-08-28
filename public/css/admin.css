@@ -1,0 +1,63 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #3d3d3d;
+}
+
+nav
+{
+    margin: 15px;
+}
+
+nav ul {
+    list-style: none;
+}
+nav ul li {
+    width: 100px;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+a,p
+{
+    text-decoration: none;
+    color: white
+}
+
+#container {
+    width: 90%;
+    position: relative;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#container div {
+    background-color: #4f4f4f;
+    margin-top: 20px;
+    padding: 5px;
+    position: relative;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#container div p {
+    width: calc(100% - 80px);
+    line-height: 25px;
+}
+
+#removeProduct {
+    width: 50px;
+}
+
+#removeProduct:hover {
+    color: grey
+}

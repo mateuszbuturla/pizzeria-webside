@@ -1,5 +1,8 @@
-// function admin(path, req, res) {
-function admin(app, path, MongoClient, url, dbName, mongodb) {
+function admin(app, path, MongoClient, url, dbName, mongodb, express, assert, login) {
+
+    const cookieParser = require('cookie-parser');
+
+    app.use(cookieParser());
 
     function addProduct(number, name, components, price, type) {
 
@@ -22,9 +25,15 @@ function admin(app, path, MongoClient, url, dbName, mongodb) {
     }
 
 
+    login(app, assert, MongoClient, url, dbName, path);
+
     //res.sendFile(path.join(__dirname, '../public/adminPanel.html'));
 
     app.get('/admin', (req, res) => {
+
+        if (req.cookies.admin != 1) {
+            res.redirect('/admin/login');
+        }
 
         res.sendFile(path.join(__dirname, '../public/adminPanel.html'));
 
@@ -33,6 +42,14 @@ function admin(app, path, MongoClient, url, dbName, mongodb) {
     app.get('/admin/add', (req, res) => {
 
         res.sendFile(path.join(__dirname, '../public/addProduct.html'));
+
+    });
+
+    app.get('/admin/logout', (req, res) => {
+
+        res.clearCookie('admin');
+        res.redirect('/admin/login');
+        res.end();
 
     });
 
@@ -56,8 +73,9 @@ function admin(app, path, MongoClient, url, dbName, mongodb) {
             collection.deleteOne({ _id: mongodb.ObjectID(id) }, function (err) {
                 if (err)
                     console.log('Wystąpił błąd podczas usuwania produktu dz bazy danych'.red);
-                else
+                else {
                     console.log('Usuwanie produktu z bazy danych zakończyło się powodzeniem'.green);
+                }
             });
 
             client.close();
