@@ -4,6 +4,42 @@
     font-family: Arial, Helvetica, sans-serif
 }
 
+.scrollTop {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid #707070;
+    width: 40px;
+    height: 40px;
+    opacity: 0;
+    -webkit-transition: .2s linear;
+    transition: .2s linear;
+    text-align: center;
+    color: #707070;
+    font-size: 25px;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    z-index: 5;
+  }
+
+  .scrollTop i {
+      position: relative;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+  }
+  
+  .scrollTop:hover {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  
+  .scrollTop.active {
+    opacity: 1;
+  }
+
 header {
     position: relative;
     height: calc(100vh + 200px);
@@ -66,6 +102,55 @@ nav ul li {
 nav ul li a {
     color: white;
     text-decoration: none;
+    cursor: pointer;
+}
+
+nav ul li a:hover {
+    color: gold;
+}
+
+@media (orientation: landscape)
+{
+    header {
+        height: calc(100vh + 100px);
+    }
+
+    header h1{
+        top: calc(50% - 100px);
+    }
+    
+    header p{
+        top: calc(50% - 100px);
+    }
+    header i {
+        bottom: calc(10% + 100px);
+    }
+
+    nav {
+        bottom: calc(0%);
+    }
+
+    nav ul {
+        background: transparent;
+        list-style: none;
+        display: flex;
+    }
+}
+
+@media (min-width: 1000px)
+{
+    header h1{
+        font-size: 80px;
+    }
+    
+    header p{
+        font-size: 40px;
+    }
+
+    nav ul li {
+        margin-right: 15px;
+        font-size: 20px;
+    }
 }
 
 #loading {
@@ -202,6 +287,131 @@ section.drinkSection {
     background-attachment: fixed;
     border-bottom: 1px solid white;
     color: white
+}
+
+section.contact {
+    background: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), url('../img/contact.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    padding-bottom: 50px;
+}
+
+@media (min-width: 1000px)
+{
+    section.pizzaSection .container,
+    section.salatSection .container,
+    section.dumplingSection .container,
+    section.drinkSection .container {
+        max-width: 1400px;
+        position: relative;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%)
+    }
+
+    section.pizzaSection .container div,
+    section.salatSection .container div,
+    section.dumplingSection .container div,
+    section.drinkSection .container div {
+        width: 45%;
+    }
+
+    section.pizzaSection .container div:nth-last-child(1),
+    section.salatSection .container div:nth-last-child(1),
+    section.dumplingSection .container div:nth-last-child(1),
+    section.drinkSection .container div:nth-last-child(1) {
+        width: 95%;
+    }
+}
+
+section.contact h1 {
+    padding-top: 50px;
+    font-size: 40px;
+}
+
+section.contact p:nth-of-type(1) {
+    margin-top: 50px;
+    font-size: 19px;
+    color: gold;
+}
+
+section.contact p:nth-of-type(2) {
+    margin-top: 50px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+section.contact p:nth-of-type(3) {
+    font-size: 25px;
+}
+
+section.contact p:nth-of-type(4) {
+    font-size: 25px;
+    margin-top: 50px;
+}
+section.contact p:nth-of-type(5) {
+    font-size: 25px;
+}
+section.contact p:nth-of-type(4) span,
+section.contact p:nth-of-type(5) span {
+    font-size: 35px;
+    color: gold;
+}
+
+section.contact .openTime {
+    position: relative;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 250px;
+    text-align: justify;
+    font-size: 19px;
+    font-weight: normal;
+    margin-top: 50px;
+}
+
+section.contact .openTime div {
+    display: flex;
+    justify-content: space-between;
+}
+
+section.contact .openTime div p {
+    color: white;
+}
+
+
+section.contact .openTime p {
+    font-size: 19px;
+    font-weight: normal;
+    margin-top: 0;
+}
+
+section.contact p:nth-of-type(6) {
+    font-size: 25px;
+    margin-top: 50px;
+    color: gold;
+}
+
+footer {
+    background: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), url('../img/contact.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    text-align: center;
+    font-size: 19px;
+    padding: 30px;
+    border-top: 1px solid white;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
 }
 
 @keyframes arrowDown{

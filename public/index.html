@@ -8,6 +8,7 @@
     <title>Pizzeria Salomon</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/icon.png">
 </head>
 
 <body>
@@ -16,18 +17,22 @@
         <img src="img/pizzaIcon.png">
     </div>
 
-    <header>
+    <div id="home" class="scrollTop">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <header class="home">
         <h1>Pizzeria Salomon</h1>
         <p>Najlepsza pizza w twoim mieście!</p>
-        <i class="fas fa-chevron-down"></i>
+        <i class="fas fa-chevron-down otherButton" id="pizzaSection"></i>
         <nav>
             <ul>
-                <li><a href="#">HOME</a></li>
-                <li><a href="#">PIZZA</a></li>
-                <li><a href="#">SAŁATKI</a></li>
-                <li><a href="#">PIEROGI</a></li>
-                <li><a href="#">NAJOJE</a></li>
-                <li><a href="#">KONTAKT</a></li>
+                <li><a href="#" id="home">HOME</a></li>
+                <li><a href="#" id="pizzaSection">PIZZA</a></li>
+                <li><a href="#" id="salatSection">SAŁATKI</a></li>
+                <li><a href="#" id="dumplingSection">PIEROGI</a></li>
+                <li><a href="#" id="drinkSection">NAPOJE</a></li>
+                <li><a href="#" id="contact">KONTAKT</a></li>
             </ul>
         </nav>
     </header>
@@ -69,10 +74,50 @@
     </section>
 
     <section class="contact">
-        <h1>KONTAKT</h1>
+        <h1>Contact</h1>
+        <p>Zapraszamy do naszego lokalu w nazwa miasta</p>
+        <p>Nazwa miasta</p>
+        <p>ul. ulica 10c</p>
+        <p>tel. 32<span>12-34-567</span></p>
+        <p>tel. <span>123-456-789</span></p>
+        <div class="openTime">
+            <div>
+                <p>Pon.-Pią.</p>
+                <p>9:00 - 24:00</p>
+            </div>
+            <div>
+                <p>Sob.</p>
+                <p>9:00 - 3:00</p>
+            </div>
+            <div>
+                <p>Nie.</p>
+                <p>15:00 - 24:00</p>
+            </div>
+        </div>
+        <p>Dowóz od 20zł</p>
     </section>
 
+    <footer>
+        <p><a href="https://mateuszbuturla.github.io/portfolio/" target="_blank">Mateusz Buturla</a></p>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="js/script.js"></script>
+
+    <script>
+        $('nav a, .scrollTop, .otherButton').on('click', function () {
+            const goToSection = $(this).attr('id');
+            $('body, html').animate({
+                scrollTop: $('.' + goToSection).offset().top
+            })
+        })
+        document.addEventListener('scroll', () => {
+            if (window.scrollY >= 800)
+                document.querySelector('.scrollTop').classList.add('active');
+            else
+                document.querySelector('.scrollTop').classList.remove('active');
+        });
+    </script>
 
 </body>
 
