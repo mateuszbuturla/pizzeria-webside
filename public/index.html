@@ -103,21 +103,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="js/script.js"></script>
-
-    <script>
-        $('nav a, .scrollTop, .otherButton').on('click', function () {
-            const goToSection = $(this).attr('id');
-            $('body, html').animate({
-                scrollTop: $('.' + goToSection).offset().top
-            })
-        })
-        document.addEventListener('scroll', () => {
-            if (window.scrollY >= 800)
-                document.querySelector('.scrollTop').classList.add('active');
-            else
-                document.querySelector('.scrollTop').classList.remove('active');
-        });
-    </script>
+    <script src="js/jquery.js"></script>
 
 </body>
 
