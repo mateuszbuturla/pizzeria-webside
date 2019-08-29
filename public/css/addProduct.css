@@ -36,47 +36,33 @@ a,p
     color: white
 }
 
-#container {
-    width: 90%;
+main {
     position: relative;
-    top: 0;
+    top: 100px;
     left: 50%;
     transform: translateX(-50%);
-}
-
-#container div.box {
+    width: 200px;
     background-color: #4f4f4f;
-    margin-top: 20px;
-    padding: 5px;
-    position: relative;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+    padding: 15px;
+    border-radius: 10px;
 }
 
-#container div p {
-    width: calc(100% - 80px);
-    line-height: 25px;
+main textarea,
+main input,
+main select {
+    max-width: 100%;
+    min-width: 100%;
+    border-radius: 5px;
+    border: 0px;
+    padding: 3px;
+    margin-bottom: 10px;
+    margin-top: 5px;
 }
-
-#container div.actions {
-    max-width: 50px;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-#container div.actions a {
+main #addProduct {
     width: 100%;
-    text-align: right;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-
-#removeProduct:hover, 
-#editProduct:hover {
-    color: grey
+    background-color: white;
+    color: black;
+    text-align: center;
+    padding: 3px;
+    border-radius: 5px;
 }

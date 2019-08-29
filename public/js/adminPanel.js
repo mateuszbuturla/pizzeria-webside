@@ -9,7 +9,17 @@ function getProducts() {
             products.products.forEach((product, index) => {
                 let htmlProduct = document.createElement('div');
                 htmlProduct.setAttribute('id', `product${index}`);
-                htmlProduct.innerHTML = `<p>Id produktu: <span id="productId">${product._id}</span><br> Nazwa produktu: ${product.name} <br> Cena produktu: ${product.price}</p> <a id="removeProduct">Usuń</a>`;
+                htmlProduct.setAttribute('class', `box`);
+                htmlProduct.innerHTML = `<p>Id produktu: <span id="productId">${product._id}</span>
+                <br> Numer produktu: ${product.number} 
+                <br> Nazwa produktu: ${product.name} 
+                <br> Składniki: ${product.components}
+                <br> Cena produktu: ${product.price}
+                <br> Typ: ${product.type}</p> 
+                <div class="actions">
+                    <a id="removeProduct">Usuń</a>
+                    <a id="editProduct">Edytuj</a>
+                </div>`;
                 document.querySelector('#container').appendChild(htmlProduct);
             });
             document.querySelector('#loading').style.display = "none";
@@ -27,6 +37,7 @@ function removeProduct(id) {
     fetch(`/admin/remove/${id}`, {
         method: 'POST',
     })
+    window.location.replace('../admin')
 }
 
 getProducts();

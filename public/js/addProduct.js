@@ -10,6 +10,8 @@ function addProduct() {
         method: 'POST',
     })
 
+    window.location.replace('../admin/add')
+
 }
 
 document.querySelector('#addProduct').addEventListener('click', addProduct);

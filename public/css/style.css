@@ -78,7 +78,9 @@ header i {
     transform: translate(-50%, -50%);
     color: white;
     animation: arrowDown 4s ease infinite;
+    cursor: pointer;
 }
+
 
 nav{
     position: absolute;
@@ -319,13 +321,6 @@ section.contact {
     section.dumplingSection .container div,
     section.drinkSection .container div {
         width: 45%;
-    }
-
-    section.pizzaSection .container div:nth-last-child(1),
-    section.salatSection .container div:nth-last-child(1),
-    section.dumplingSection .container div:nth-last-child(1),
-    section.drinkSection .container div:nth-last-child(1) {
-        width: 95%;
     }
 }
 

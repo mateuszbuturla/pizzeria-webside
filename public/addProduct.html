@@ -1,32 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>MB Sklep - Strona główna</title>
+    <title>Pizzera Salomon - Dodaj produkt</title>
+    <link rel="stylesheet" href="/css/addProduct.css">
 </head>
 
 <body>
 
-    <h1>MB sklep - Panel administratora - Dodaj Produkt</h1>
+    <nav>
+        <ul>
+            <li><a href="/">Strona główna</a></li>
+            <li><a href="/admin">Panel Administracyjny</a></li>
+            <li><a href="/admin/add">Dodaj produkt</a></li>
+            <li><a href="/admin/logout">Wyloguj</a></li>
+        </ul>
+    </nav>
 
-    <a href="/admin">Panel Administratora</a>
-
-    <form method="post">
-        Numer<input type="text" id="productNumber"><br>
-        Nazwa<input type="text" id="productName"><br>
-        Skdniki<input type="text" id="productComponents"><br>
-        Cena<input type="text" id="productPrice"><br>
-        <select id="productType">
-            <option value="pizza">Pizza</option>
-            <option value="salat">Sałatka</option>
-            <option value="pierogi">Pierogi</option>
-            <option value="drink">Napój</option>
-        </select>
-        <p id="addProduct">Dodaj</p>
-    </form>
+    <main>
+        <form method="post">
+            <label>
+                <p>Numer:</p> <input type="text" id="productNumber">
+            </label>
+            <label>
+                <p>Nazwa:</p> <input type="text" id="productName">
+            </label>
+            <label>
+                <p>Składniki:</p> <textarea id="productComponents"></textarea>
+            </label>
+            <label>
+                <p>Cena:</p> <input type="text" id="productPrice">
+            </label>
+            <!-- Numer<input type="text" id="productNumber"><br>
+            Nazwa<input type="text" id="productName"><br>
+            Skdniki<input type="text" id="productComponents"><br>
+            Cena<input type="text" id="productPrice"><br> -->
+            <label>
+                <p>Typ: </p>
+                <select id="productType">
+                    <option value="pizza">Pizza</option>
+                    <option value="salat">Sałatka</option>
+                    <option value="pierogi">Pierogi</option>
+                    <option value="drink">Napój</option>
+                </select>
+            </label>
+            <p id="addProduct">Dodaj</p>
+        </form>
+    </main>
 
     <script src="/js/addProduct.js"></script>
 
